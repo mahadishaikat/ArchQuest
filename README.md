@@ -22,6 +22,17 @@ This guide explains the Arch Linux installation process step-by-step for beginne
 
 ---
 
+### Manual Installation Walkthrough
+
+The *legendary* path awaits! This is the **recommended way** for those fearless individuals who crave a deep dive into the core mechanics of how Linux truly operates. By following this journey, you won't just install Arch Linux—you'll gain a profound understanding of the gears turning behind the scenes.
+
+Take pride in earning the right to say, *"I use Linux, BTW!"* and wield it with the confidence of someone who has walked the path of mastery.
+
+**The choice is yours: will you rise as a Linux legend, or tread the safer trails of the mundane?** 🐧🔥
+
+
+---
+
 ### Connecting to the Internet
 
 | Step | Command                                                   | Explanation                               | Why Doing This                                    | Optional/Mandatory |
