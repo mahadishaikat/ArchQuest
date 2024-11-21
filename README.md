@@ -2,6 +2,24 @@
 
 This guide explains the Arch Linux installation process step-by-step for beginners. Every step is detailed, and repeated actions are fully explained to avoid confusion.
 
+## Dynamic Index
+
+1. [Connecting to the Internet](#connecting-to-the-internet)
+2. [Partitioning the Disk](#partitioning-the-disk)
+   - [Using fdisk](#using-fdisk)
+   - [Creating EFI Partition](#creating-efi-partition)
+3. [Setting up LVM](#setting-up-lvm)
+4. [Formatting Partitions](#formatting-partitions)
+5. [Mounting Partitions](#mounting-partitions)
+6. [Installing Required Packages](#installing-required-packages)
+7. [Setting Up Drivers for Video Cards](#setting-up-drivers-for-video-cards)
+8. [Special Configuration for Intel and AMD GPUs](#special-configuration-for-intel-and-amd-gpus)
+9. [Configuring mkinitcpio and Kernel](#configuring-mkinitcpio-and-kernel)
+10. [Setting Locale and GRUB](#setting-locale-and-grub)
+11. [Setting Up EFI and Installing GRUB](#setting-up-efi-and-installing-grub)
+12. [Final Steps](#final-steps)
+13. [Post-Boot Configuration](#post-boot-configuration)
+
 ## Index
 1. [Connecting to the Internet](#connecting-to-the-internet)
 2. [Partitioning the Disk](#partitioning-the-disk)
