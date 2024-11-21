@@ -3,8 +3,8 @@
 This guide explains the Arch Linux installation process step-by-step for beginners. Every step is detailed, and repeated actions are fully explained to avoid confusion. Errors will be solved which I have faced with my `Nvidia RTX 3060` GPU, few tips will be shared for smooth installation.
 
 ## Index
-1. Manual Installation Walkthrough
-   - [Connecting to the Internet](#connecting-to-the-internet)
+1. **Manual Installation Walkthrough**
+   [Connecting to the Internet](#connecting-to-the-internet)
    - [Partitioning the Disk](#partitioning-the-disk)
    - [Setting up LVM](#setting-up-lvm)
    - [Formatting Partitions](#formatting-partitions)
@@ -14,7 +14,7 @@ This guide explains the Arch Linux installation process step-by-step for beginne
    - [Special Configuration for Intel and AMD GPUs](#special-configuration-for-intel-and-amd-gpus)
    - [Configuring mkinitcpio and Kernel](#configuring-mkinitcpio-and-kernel)
    - [Setting Locale and GRUB](#setting-locale-and-grub)
-2. Scripted Installation Walkthrough (Using ArchInstall Script)
+2. **Scripted Installation Walkthrough (Using ArchInstall Script)**
    - 1. [Connecting to the Internet](#connecting-to-the-internet)
    - 2. [Partitioning the Disk](#partitioning-the-disk)
    - 3. [Setting up LVM](#setting-up-lvm)
