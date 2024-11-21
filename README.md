@@ -79,12 +79,6 @@ This guide explains the Arch Linux installation process step-by-step for beginne
 
 ---
 
-# Arch Linux Manual Installation Guide
-
-This guide explains the Arch Linux installation process step-by-step for beginners. Every step is detailed, and repeated actions are fully explained to avoid confusion.
-
----
-
 ### Installing Required Packages
 
 | Step | Command                                         | Explanation                                     | Why Doing This                                   | Optional/Mandatory |
