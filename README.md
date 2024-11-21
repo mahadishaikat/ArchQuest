@@ -42,6 +42,11 @@ Embrace the distinguished honor of proclaiming, 'I use Linux, BTW!' and wield it
 | 3    | `ip addr show`                                            | Shows current IP addresses                | To verify if an IP address is assigned           | Optional            |
 | 4    | `ping google.com`                                         | Sends packets to check connectivity       | To verify internet connection is working         | Optional            |
 
+<div align="right">
+  <br>
+  <a href="#-design-by-t2"><kbd> <br> 🡅 <br> </kbd></a>
+</div>
+
 ---
 
 ### Partitioning the Disk
