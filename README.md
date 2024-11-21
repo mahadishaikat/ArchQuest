@@ -41,10 +41,6 @@ Embrace the distinguished honor of proclaiming, 'I use Linux, BTW!' and wield it
 | 2    | `iwctl --passphrase "**" station wlan0 connect Your_Wifi_Name` | Connect to Wi-Fi using iwctl              | To set up an internet connection in the live session | Mandatory           |
 | 3    | `ip addr show`                                            | Shows current IP addresses                | To verify if an IP address is assigned           | Optional            |
 | 4    | `ping google.com`                                         | Sends packets to check connectivity       | To verify internet connection is working         | Optional            |
-<div align="right">
-  <br>
-  <a href="#index"><kbd> <br> 🡅 <br> </kbd></a>
-</div>
 
 ---
 
@@ -210,7 +206,10 @@ Embrace the distinguished honor of proclaiming, 'I use Linux, BTW!' and wield it
 | 1    | Check Wi-Fi functionality and reconnect      | Ensure your Wi-Fi is working and connected            | To make sure you have an active internet connection | Mandatory           |
 | 2    | Go to Settings -> Region and Languages -> Language | Change language to English if necessary                | To set the preferred system language               | Optional            |
 
-[**View Index**](#index)
+<div align="right">
+  <br>
+  <a href="#index"><kbd> <br> 🡅 <br> </kbd></a>
+</div>
 
 ---
 
