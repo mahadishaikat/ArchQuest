@@ -42,7 +42,7 @@ Take pride in earning the right to say, *"I use Linux, BTW!"* and wield it with 
 | 3    | `ip addr show`                                            | Shows current IP addresses                | To verify if an IP address is assigned           | Optional            |
 | 4    | `ping google.com`                                         | Sends packets to check connectivity       | To verify internet connection is working         | Optional            |
 
-[**View Index**](#index)
+<a href="#index" style="display: inline-block; padding: 10px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-family: Arial, sans-serif; font-size: 14px; text-align: center; float: right; margin: 10px;">🔙 View Index</a>
 
 ---
 
