@@ -14,6 +14,7 @@ This guide explains the Arch Linux installation process step-by-step for beginne
    - [Special Configuration for Intel and AMD GPUs](#special-configuration-for-intel-and-amd-gpus)
    - [Configuring mkinitcpio and Kernel](#configuring-mkinitcpio-and-kernel)
    - [Setting Locale and GRUB](#setting-locale-and-grub)
+
 **2. Scripted Installation Walkthrough (Using ArchInstall Script)**
    - 1. [Connecting to the Internet](#connecting-to-the-internet)
    - 2. [Partitioning the Disk](#partitioning-the-disk)
