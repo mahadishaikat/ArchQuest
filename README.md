@@ -79,82 +79,106 @@ This guide explains the Arch Linux installation process step-by-step for beginne
 
 ---
 
+# Arch Linux Manual Installation Guide
+
+This guide explains the Arch Linux installation process step-by-step for beginners. Every step is detailed, and repeated actions are fully explained to avoid confusion.
+
 ---
 
 ### Installing Required Packages
 
-| Step | Command                                           | Explanation                                            | Why Doing This                                      | Optional/Mandatory |
-|------|---------------------------------------------------|--------------------------------------------------------|----------------------------------------------------|---------------------|
-| 1    | `pacstrap -i /mnt base`                           | Installs the base system packages                      | To install the essential Arch Linux packages       | Mandatory           |
-| 2    | `genfstab -U -P /mnt >> /mnt/etc/fstab`            | Generates the fstab file for mounting partitions at boot | Ensures partitions are mounted automatically       | Mandatory           |
-| 3    | `cat /mnt/etc/fstab`                              | Displays the contents of the fstab file                | To verify the partitions are correctly configured   | Optional            |
-| 4    | `arch-chroot /mnt`                                | Changes root to the newly installed system            | To begin configuring the system inside the chroot   | Mandatory           |
-| 5    | `passwd`                                          | Sets the root password for the system                  | To secure the root account                         | Mandatory           |
-| 6    | `useradd -m -g users -G wheel userName`            | Creates a new user with administrative privileges      | To add a normal user account                       | Mandatory           |
-| 7    | `passwd userName`                                  | Sets the password for the newly created user           | To secure the normal user account                  | Mandatory           |
+| Step | Command                                         | Explanation                                     | Why Doing This                                   | Optional/Mandatory |
+|------|-------------------------------------------------|-------------------------------------------------|-------------------------------------------------|---------------------|
+| 1    | `pacstrap -i /mnt base`                         | Installs base system packages                   | To install the essential packages for the system | Mandatory           |
+| 2    | `y`                                             | Confirms installation                           | To proceed with installing the base packages     | Mandatory           |
+| 3    | `genfstab -U -P /mnt >> /mnt/etc/fstab`          | Generates fstab file for mounting partitions     | Required for mounting partitions at boot time    | Mandatory           |
+| 4    | `cat /mnt/etc/fstab`                            | Views the generated fstab file                  | To confirm the fstab file is created correctly   | Optional            |
+| 5    | `arch-chroot /mnt`                              | Chroots into the installation environment       | To access the installed system from the live environment | Mandatory           |
+| 6    | `passwd`                                        | Sets the root password                          | To secure the root user account                  | Mandatory           |
+| 7    | `useradd -m -g users -G wheel userName`         | Creates a new user account                      | To create a regular user with sudo privileges    | Mandatory           |
+| 8    | `passwd userName`                               | Sets the password for the newly created user    | To secure the user account                       | Mandatory           |
+| 9    | `pacman -S base-devel dosfstools grub efibootmgr gnome gnome-tweaks lvm2 mtools nano networkmanager openssh os-prober sudo` | Installs additional necessary packages          | To install required packages for functionality like GRUB, network management, and others | Mandatory           |
+| 10   | `y`                                             | Confirms installation                           | To proceed with installing the packages          | Mandatory           |
+| 11   | `pacman -S linux linux-headers linux-lts linux-lts-headers` | Installs Linux kernel and headers               | To install the main Linux kernel and a backup (optional) | Mandatory           |
+| 12   | `y`                                             | Confirms installation                           | To proceed with installing the Linux kernel      | Mandatory           |
+| 13   | `pacman -S linux-firmware`                      | Installs firmware packages                      | Optional for proprietary hardware support        | Optional            |
+| 14   | `y`                                             | Confirms installation                           | To proceed with installing firmware packages     | Optional            |
 
 ---
 
-### Installing Additional Packages
+### Setting Up Drivers for Video Card
 
-| Step | Command                                               | Explanation                                               | Why Doing This                                      | Optional/Mandatory |
-|------|-------------------------------------------------------|-----------------------------------------------------------|----------------------------------------------------|---------------------|
-| 1    | `pacman -S base-devel dosfstools grub efibootmgr gnome gnome-tweaks lvm2 mtools nano networkmanager openssh os-prober sudo` | Installs essential utilities and desktop environment packages | To prepare the system for basic functionality, GUI, and dual booting | Mandatory           |
-| 2    | `pacman -S linux linux-headers linux-lts linux-lts-headers` | Installs the Linux kernel and headers                      | Provides the core Linux kernel for system operation | Mandatory           |
-| 3    | `pacman -S linux-firmware`                             | Installs necessary firmware for hardware devices           | Needed for supporting proprietary hardware         | Optional            |
-| 4    | `pacman -S mesa`                                      | Installs graphics drivers for Intel and AMD GPUs           | For proper GPU support on Intel/AMD devices         | Optional            |
-| 5    | `pacman -S nvidia nvidia-utils nvidia-lts`             | Installs NVIDIA drivers for gaming and general GPU use     | Required for NVIDIA GPU support                    | Optional            |
-| 6    | `pacman -S intel-media-driver`                        | Installs Intel GPU hardware acceleration drivers           | For Intel GPU hardware decoding support            | Optional            |
-| 7    | `pacman -S libva-mesa-driver`                         | Installs AMD GPU hardware acceleration drivers             | For AMD hardware decoding                          | Optional            |
-
----
-
-### Configuring the System
-
-| Step | Command                                       | Explanation                                            | Why Doing This                                      | Optional/Mandatory |
-|------|-----------------------------------------------|--------------------------------------------------------|----------------------------------------------------|---------------------|
-| 1    | `nano /etc/mkinitcpio.conf`                   | Opens the initcpio configuration file                   | To configure kernel parameters                     | Mandatory           |
-| 2    | Add `"encrypt lvm2"` between `"block"` and `"filesystem"` | Modifies the mkinitcpio hooks line                      | Enables encryption and LVM support during boot      | Mandatory           |
-| 3    | `mkinitcpio -p linux`                         | Generates the initial ramdisk for the Linux kernel      | Prepares the kernel with encryption and LVM support | Mandatory           |
-| 4    | `mkinitcpio -p linux-lts`                     | Generates the initial ramdisk for the LTS kernel        | Prepares the LTS kernel with encryption and LVM    | Optional            |
+| Step | Command                                          | Explanation                                     | Why Doing This                                   | Optional/Mandatory |
+|------|--------------------------------------------------|-------------------------------------------------|-------------------------------------------------|---------------------|
+| 1    | `lspci`                                          | Lists PCI devices                               | To identify your GPU                             | Mandatory           |
+| 2    | `pacman -S mesa`                                 | Installs drivers for Intel/AMD GPUs             | To set up drivers for Intel or AMD GPUs          | Mandatory for Intel/AMD GPUs |
+| 3    | `y`                                              | Confirms installation                           | To proceed with installing the GPU drivers       | Mandatory           |
+| 4    | `pacman -S nvidia nvidia-utils nvidia-lts`        | Installs Nvidia drivers for gaming              | For Nvidia GPUs, needed for gaming and better performance | Mandatory for Nvidia GPUs |
+| 5    | `y`                                              | Confirms installation                           | To proceed with installing Nvidia drivers        | Mandatory           |
+| 6    | `pacman -S nouveau`                              | Installs open-source Nvidia driver              | For Nvidia GPUs if you prefer open-source drivers | Optional            |
+| 7    | `y`                                              | Confirms installation                           | To proceed with installing Nouveau drivers       | Optional            |
 
 ---
 
-### Locale and Timezone Configuration
+### Special Configuration for Intel and AMD GPUs
 
-| Step | Command                                       | Explanation                                            | Why Doing This                                      | Optional/Mandatory |
-|------|-----------------------------------------------|--------------------------------------------------------|----------------------------------------------------|---------------------|
-| 1    | `nano /etc/locale.gen`                        | Opens the locale configuration file                      | To set the system locale                           | Mandatory           |
-| 2    | Uncomment `en_US.UTF-8`                        | Enables US English locale                               | Sets the system language to English                 | Mandatory           |
-| 3    | `locale-gen`                                   | Generates the locale data                                | Ensures the system uses the selected locale         | Mandatory           |
-| 4    | `ln -sf /usr/share/zoneinfo/Your/Timezone /etc/localtime` | Sets the system timezone                               | Ensures the system uses the correct time zone       | Mandatory           |
-| 5    | `hwclock --systohc`                           | Synchronizes hardware clock with system time            | Sets the hardware clock to match the system time    | Mandatory           |
-
----
-
-### Setting Up GRUB and Bootloader
-
-| Step | Command                                                   | Explanation                                            | Why Doing This                                      | Optional/Mandatory |
-|------|-----------------------------------------------------------|--------------------------------------------------------|----------------------------------------------------|---------------------|
-| 1    | `nano /etc/default/grub`                                  | Opens the GRUB configuration file                       | To configure GRUB bootloader settings              | Mandatory           |
-| 2    | Add `cryptdevice=/dev/nvme0n1p3:volgroup0` to the `GRUB_CMDLINE_LINUX_DEFAULT` line | Sets up disk encryption in GRUB                        | Ensures that the encrypted partition is unlocked at boot | Mandatory           |
-| 3    | `mkdir /boot/EFI`                                         | Creates the EFI directory                               | Prepares for EFI bootloader installation           | Mandatory           |
-| 4    | `mount /dev/nvme0n1p1 /boot/EFI`                          | Mounts the EFI partition                                | Mounts the partition for the bootloader            | Mandatory           |
-| 5    | `grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck` | Installs GRUB bootloader for UEFI systems               | Installs GRUB to the EFI partition                 | Mandatory           |
-| 6    | `cp /usr/share/locale/en@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo` | Copies GRUB locale files to boot partition              | Ensures correct language support in GRUB            | Mandatory           |
-| 7    | `grub-mkconfig -o /boot/grub/grub.cfg`                    | Generates GRUB configuration file                       | Creates the GRUB boot menu                          | Mandatory           |
+| Step | Command                                          | Explanation                                     | Why Doing This                                   | Optional/Mandatory |
+|------|--------------------------------------------------|-------------------------------------------------|-------------------------------------------------|---------------------|
+| 1    | `pacman -S intel-media-driver`                   | Installs Intel hardware decoding drivers        | For Intel GPUs, enabling hardware decoding       | Optional for Intel GPUs |
+| 2    | `y`                                              | Confirms installation                           | To proceed with installing the Intel driver      | Mandatory           |
+| 3    | `pacman -S libva-mesa-driver`                    | Installs AMD drivers for hardware decoding      | For AMD GPUs, enabling hardware decoding         | Optional for AMD GPUs |
+| 4    | `y`                                              | Confirms installation                           | To proceed with installing the AMD driver        | Mandatory           |
 
 ---
 
-### Finalizing Setup
+### Configuring mkinitcpio and Kernel
 
-| Step | Command                                | Explanation                                           | Why Doing This                                      | Optional/Mandatory |
-|------|----------------------------------------|-------------------------------------------------------|----------------------------------------------------|---------------------|
-| 1    | `systemctl enable gdm`                 | Enables the GNOME Display Manager (GDM)                | To start the graphical interface automatically      | Mandatory           |
-| 2    | `systemctl enable NetworkManager`      | Enables NetworkManager for networking support          | Ensures network connectivity after reboot           | Mandatory           |
-| 3    | `exit`                                 | Exits the chroot environment                           | To leave the chroot session                        | Mandatory           |
-| 4    | `umount -a`                            | Unmounts all mounted partitions                        | To safely unmount all partitions before reboot      | Mandatory           |
-| 5    | `reboot`                               | Reboots the system                                     | To restart the system and boot into Arch Linux      | Mandatory           |
+| Step | Command                                          | Explanation                                     | Why Doing This                                   | Optional/Mandatory |
+|------|--------------------------------------------------|-------------------------------------------------|-------------------------------------------------|---------------------|
+| 1    | `nano /etc/mkinitcpio.conf`                      | Opens the mkinitcpio configuration file         | To edit boot settings for the system             | Mandatory           |
+| 2    | Add `encrypt lvm2` between `block` and `filesystem` | Updates mkinitcpio to enable LVM and encryption support | To set up disk encryption and LVM                | Mandatory           |
+| 3    | `save and exit`                                  | Saves the file changes                         | To save and apply the changes                    | Mandatory           |
+| 4    | `mkinitcpio -p linux`                           | Generates the initial ramdisk for the Linux kernel | To create the initial ramdisk                    | Mandatory           |
+| 5    | `mkinitcpio -p linux-lts`                       | Generates the initial ramdisk for the LTS kernel | To create the initial ramdisk for backup kernel  | Mandatory for backup kernel |
+| 6    | `done for both kernels`                         | Finalizes ramdisk creation                     | Ensures ramdisks are created for both kernels    | Mandatory           |
+
+---
+
+### Setting Locale and GRUB
+
+| Step | Command                                          | Explanation                                     | Why Doing This                                   | Optional/Mandatory |
+|------|--------------------------------------------------|-------------------------------------------------|-------------------------------------------------|---------------------|
+| 1    | `nano /etc/locale.gen`                           | Opens locale configuration file                 | To set the system language                       | Mandatory           |
+| 2    | Uncomment `en_US.UTF-8`                          | Activates English locale                        | To set English as the system language            | Mandatory           |
+| 3    | `locale-gen`                                     | Generates locale files                          | To create the locale files                       | Mandatory           |
+| 4    | `nano /etc/default/grub`                         | Opens the GRUB configuration file               | To configure GRUB for booting                    | Mandatory           |
+| 5    | Add `cryptdevice=/dev/nvme0n1p3:volgroup0` to `GRUB_CMDLINE_LINUX_DEFAULT` | Specifies encrypted partition for booting | To enable booting from encrypted LVM partition   | Mandatory           |
+| 6    | `exit`                                           | Exits the file editor                           | To save and exit                                | Mandatory           |
+
+---
+
+### Setting Up EFI and Installing GRUB
+
+| Step | Command                                          | Explanation                                     | Why Doing This                                   | Optional/Mandatory |
+|------|--------------------------------------------------|-------------------------------------------------|-------------------------------------------------|---------------------|
+| 1    | `mkdir /boot/EFI`                                | Creates the EFI directory                       | To prepare for GRUB installation                 | Mandatory           |
+| 2    | `mount /dev/nvme0n1p1 /boot/EFI`                 | Mounts the EFI partition                        | To mount the EFI partition for GRUB installation | Mandatory           |
+| 3    | `grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck` | Installs GRUB bootloader                        | To install GRUB to manage booting                | Mandatory           |
+| 4    | `cp /usr/share/locale/en@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo` | Copies GRUB locale files                        | To set GRUB's locale settings                    | Mandatory           |
+| 5    | `grub-mkconfig -o /boot/grub/grub.cfg`           | Generates GRUB configuration file               | To create the GRUB configuration file            | Mandatory           |
+| 6    | `systemctl enable gdm`                           | Enables GDM display manager                     | To start the graphical login manager on boot     | Mandatory           |
+| 7    | `systemctl enable NetworkManager`                | Enables NetworkManager service                  | To ensure network management starts at boot      | Mandatory           |
+
+---
+
+### Final Steps
+
+| Step | Command                                          | Explanation                                     | Why Doing This                                   | Optional/Mandatory |
+|------|--------------------------------------------------|-------------------------------------------------|-------------------------------------------------|---------------------|
+| 1    | `exit`                                           | Exits chroot environment                        | To exit the installation environment            | Mandatory           |
+| 2    | `umount -a`                                      | Unmounts all mounted partitions                 | To unmount everything before reboot             | Mandatory           |
+| 3    | `reboot`                                         | Reboots the system                              | To restart the system with the installed Arch Linux | Mandatory           |
+| 4    | `check you have successfully booted`             | Verifies boot success                           | To ensure the system boots properly             | Mandatory           |
 
 ---
 
