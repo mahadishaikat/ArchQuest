@@ -41,12 +41,10 @@ Embrace the distinguished honor of proclaiming, 'I use Linux, BTW!' and wield it
 | 2    | `iwctl --passphrase "**" station wlan0 connect Your_Wifi_Name` | Connect to Wi-Fi using iwctl              | To set up an internet connection in the live session | Mandatory           |
 | 3    | `ip addr show`                                            | Shows current IP addresses                | To verify if an IP address is assigned           | Optional            |
 | 4    | `ping google.com`                                         | Sends packets to check connectivity       | To verify internet connection is working         | Optional            |
-
 <div align="right">
   <br>
   <a href="#-design-by-t2"><kbd> <br> 🡅 <br> </kbd></a>
 </div>
-
 ---
 
 ### Partitioning the Disk
