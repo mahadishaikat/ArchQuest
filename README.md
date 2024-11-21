@@ -8,6 +8,11 @@ This guide explains the Arch Linux installation process step-by-step for beginne
 3. [Setting up LVM](#setting-up-lvm)
 4. [Formatting Partitions](#formatting-partitions)
 5. [Mounting Partitions](#mounting-partitions)
+6. [Installing Required Packages](#installing-required-packages)
+7. [Setting Up Drivers for Video Card](#setting-up-drivers-for-video-card)
+8. [Special Configuration for Intel and AMD GPUs](#special-configuration-for-intel-and-amd-gpus)
+9. [Configuring mkinitcpio and Kernel](#configuring-mkinitcpio-and-kernel)
+10. [Setting Locale and GRUB](#setting-locale-and-grub)
 
 ---
 
