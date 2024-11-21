@@ -26,8 +26,6 @@ This guide explains the Arch Linux installation process step-by-step for beginne
 
 The *legendary* path awaits! This is the **recommended way** for those fearless individuals who crave a deep dive into the core mechanics of how Linux truly operates.
 
-
-
 Embrace the distinguished honor of proclaiming, 'I use Linux, BTW!' and wield it with the regal confidence of one who has ascended the illustrious path of mastery.
 
 **The choice is yours: will you rise as a Linux legend, or tread the safer trails of the mundane?** 🐧🔥
