@@ -151,7 +151,7 @@ This guide explains the Arch Linux installation process step-by-step for beginne
 | 2    | Uncomment `en_US.UTF-8`                          | Activates English locale                        | To set English as the system language            | Mandatory           |
 | 3    | `locale-gen`                                     | Generates locale files                          | To create the locale files                       | Mandatory           |
 | 4    | `nano /etc/default/grub`                         | Opens the GRUB configuration file               | To configure GRUB for booting                    | Mandatory           |
-| 5    | Add `cryptdevice=/dev/nvme0n1p3:volgroup0` to `GRUB_CMDLINE_LINUX_DEFAULT` | Specifies encrypted partition for booting | To enable booting from encrypted LVM partition   | Mandatory           |
+| 5    | Add `cryptdevice=/dev/nvme0n1p3:volgroup0` to `GRUB_CMDLINE_LINUX_DEFAULT` before `quiet` word | Specifies encrypted partition for booting | To enable booting from encrypted LVM partition   | Mandatory           |
 | 6    | `exit`                                           | Exits the file editor                           | To save and exit                                | Mandatory           |
 
 ---
