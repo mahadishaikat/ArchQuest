@@ -42,8 +42,6 @@ Take pride in earning the right to say, *"I use Linux, BTW!"* and wield it with 
 | 3    | `ip addr show`                                            | Shows current IP addresses                | To verify if an IP address is assigned           | Optional            |
 | 4    | `ping google.com`                                         | Sends packets to check connectivity       | To verify internet connection is working         | Optional            |
 
-[**View Index**](#index)
-
 ---
 
 ### Partitioning the Disk
@@ -60,8 +58,6 @@ Take pride in earning the right to say, *"I use Linux, BTW!"* and wield it with 
 | 8    | `n`                            | Starts creating the next partition            | To allocate additional space for the system        | Mandatory           |
 | 9    | Defaults, `+1G`, `Y`           | Allocates another 1GB for the boot partition  | To dedicate space for the bootloader               | Mandatory           |
 | 10   | `p`                            | Prints the updated partition table            | To verify all created partitions                   | Optional            |
-
-[**View Index**](#index)
 
 ---
 
@@ -87,8 +83,6 @@ Take pride in earning the right to say, *"I use Linux, BTW!"* and wield it with 
 | 15   | `vgdisplay`                                  | Displays information about the volume group   | To verify the volume group creation                | Optional            |
 | 16   | `lvdisplay`                                  | Displays information about logical volumes    | To verify logical volume creation                  | Optional            |
 
-[**View Index**](#index)
-
 ---
 
 ### Mounting Partitions
@@ -105,8 +99,6 @@ Take pride in earning the right to say, *"I use Linux, BTW!"* and wield it with 
 | 8    | `mount /dev/nvme0n1p2 /mnt/boot`         | Mounts the boot partition                     | To integrate the bootloader into the system         | Mandatory           |
 | 9    | `mkdir /mnt/home`                        | Creates a directory for the home partition    | To store user files in a separate logical volume    | Mandatory           |
 | 10   | `mount /dev/volgroup0/lv_home /mnt/home` | Mounts the home logical volume                | To complete the filesystem structure               | Mandatory           |
-
-[**View Index**](#index)
 
 ---
 
@@ -129,8 +121,6 @@ Take pride in earning the right to say, *"I use Linux, BTW!"* and wield it with 
 | 13   | `pacman -S linux-firmware`                      | Installs firmware packages                      | Optional for proprietary hardware support        | Optional            |
 | 14   | `y`                                             | Confirms installation                           | To proceed with installing firmware packages     | Optional            |
 
-[**View Index**](#index)
-
 ---
 
 ### Setting Up Drivers for Video Card
@@ -145,8 +135,6 @@ Take pride in earning the right to say, *"I use Linux, BTW!"* and wield it with 
 | 6    | `pacman -S nouveau`                              | Installs open-source Nvidia driver              | For Nvidia GPUs if you prefer open-source drivers | Optional            |
 | 7    | `y`                                              | Confirms installation                           | To proceed with installing Nouveau drivers       | Optional            |
 
-[**View Index**](#index)
-
 ---
 
 ### Special Configuration for Intel and AMD GPUs
@@ -157,8 +145,6 @@ Take pride in earning the right to say, *"I use Linux, BTW!"* and wield it with 
 | 2    | `y`                                              | Confirms installation                           | To proceed with installing the Intel driver      | Mandatory           |
 | 3    | `pacman -S libva-mesa-driver`                    | Installs AMD drivers for hardware decoding      | For AMD GPUs, enabling hardware decoding         | Optional for AMD GPUs |
 | 4    | `y`                                              | Confirms installation                           | To proceed with installing the AMD driver        | Mandatory           |
-
-[**View Index**](#index)
 
 ---
 
@@ -173,8 +159,6 @@ Take pride in earning the right to say, *"I use Linux, BTW!"* and wield it with 
 | 5    | `mkinitcpio -p linux-lts`                       | Generates the initial ramdisk for the LTS kernel | To create the initial ramdisk for backup kernel  | Mandatory for backup kernel |
 | 6    | `done for both kernels`                         | Finalizes ramdisk creation                     | Ensures ramdisks are created for both kernels    | Mandatory           |
 
-[**View Index**](#index)
-
 ---
 
 ### Setting Locale and GRUB
@@ -187,8 +171,6 @@ Take pride in earning the right to say, *"I use Linux, BTW!"* and wield it with 
 | 4    | `nano /etc/default/grub`                         | Opens the GRUB configuration file               | To configure GRUB for booting                    | Mandatory           |
 | 5    | Add `cryptdevice=/dev/nvme0n1p3:volgroup0` to `GRUB_CMDLINE_LINUX_DEFAULT` before `quiet` word | Specifies encrypted partition for booting | To enable booting from encrypted LVM partition   | Mandatory           |
 | 6    | `exit`                                           | Exits the file editor                           | To save and exit                                | Mandatory           |
-
-[**View Index**](#index)
 
 ---
 
@@ -204,8 +186,6 @@ Take pride in earning the right to say, *"I use Linux, BTW!"* and wield it with 
 | 6    | `systemctl enable gdm`                           | Enables GDM display manager                     | To start the graphical login manager on boot     | Mandatory           |
 | 7    | `systemctl enable NetworkManager`                | Enables NetworkManager service                  | To ensure network management starts at boot      | Mandatory           |
 
-[**View Index**](#index)
-
 ---
 
 ### Final Steps
@@ -216,8 +196,6 @@ Take pride in earning the right to say, *"I use Linux, BTW!"* and wield it with 
 | 2    | `umount -a`                                      | Unmounts all mounted partitions                 | To unmount everything before reboot             | Mandatory           |
 | 3    | `reboot`                                         | Reboots the system                              | To restart the system with the installed Arch Linux | Mandatory           |
 | 4    | `check you have successfully booted`             | Verifies boot success                           | To ensure the system boots properly             | Mandatory           |
-
-[**View Index**](#index)
 
 ---
 
