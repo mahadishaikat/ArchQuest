@@ -45,6 +45,7 @@ This guide explains the Arch Linux installation process step-by-step for beginne
 ---
 
 ### Setting up LVM
+In Linux, Logical Volume Manager (LVM) is a device mapper framework that provides logical volume management for the Linux kernel.
 
 | Step | Command                                      | Explanation                                   | Why Doing This                                       | Optional/Mandatory |
 |------|----------------------------------------------|-----------------------------------------------|-----------------------------------------------------|---------------------|
