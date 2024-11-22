@@ -16,7 +16,7 @@ This guide explains the Arch Linux installation process step-by-step for beginne
    - [Setting Locale and GRUB](#setting-locale-and-grub)
 
 **2. Scripted Installation Walkthrough (Using ArchInstall Script)**
-   - [Coming Soon!](#connecting-to-the-internet)
+   - [Coming Soon!](#index)
 
 ---
 
