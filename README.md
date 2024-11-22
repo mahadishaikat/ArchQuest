@@ -19,6 +19,7 @@ This guide explains the Arch Linux installation process step-by-step for beginne
    - [Connecting to the Internet](#connecting-to-the-internet)
    - [Partitioning the Disk](#partitioning-the-disk)
    - [Setting up LVM](#setting-up-lvm)
+
 ---
 
 ### Manual Installation Walkthrough
