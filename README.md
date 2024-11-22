@@ -16,9 +16,7 @@ This guide explains the Arch Linux installation process step-by-step for beginne
    - [Setting Locale and GRUB](#setting-locale-and-grub)
 
 **2. Scripted Installation Walkthrough (Using ArchInstall Script)**
-   - [Connecting to the Internet](#connecting-to-the-internet)
-   - [Partitioning the Disk](#partitioning-the-disk)
-   - [Setting up LVM](#setting-up-lvm)
+   - [Coming Soon!](#connecting-to-the-internet)
 
 ---
 
