@@ -1,4 +1,4 @@
-# Arch Linux Installation Guide (Both Manual and Scripted)
+# ArchQuest (Merging Methods for Seamless Installation)
 
 This guide explains the Arch Linux installation process step-by-step for beginners. Every step is detailed, and repeated actions are fully explained to avoid confusion. Errors will be solved which I have faced with my `Nvidia RTX 3060` GPU, few tips will be shared for smooth installation.
 
